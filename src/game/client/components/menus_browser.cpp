@@ -1488,10 +1488,10 @@ void CMenus::RenderServerbrowserFriends(CUIRect View)
 	     HasClan = std::any_of(m_avFriends[FRIEND_OFF].begin(), m_avFriends[FRIEND_OFF].end(), [&](const auto &Friend) {
 		     return Friend.Name()[0] == '\0';
 	     });
-
-	for(int ServerIndex = 0; ServerIndex < ServerBrowser()->NumServers(); ++ServerIndex)
-	{
-		const CServerInfo *pEntry = ServerBrowser()->Get(ServerIndex);
+		 
+	for(int ServerIndex = 0; ServerIndex < ServerBrowser()->NumSortedServers(); ++ServerIndex)
+    {
+        const CServerInfo *pEntry = ServerBrowser()->SortedGet(ServerIndex);
 		if(pEntry->m_FriendState == IFriends::FRIEND_NO)
 			continue;
 
